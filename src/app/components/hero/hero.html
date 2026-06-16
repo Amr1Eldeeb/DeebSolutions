@@ -1,0 +1,72 @@
+<section class="hero">
+  <div class="hero__bg-pattern"></div>
+  <div class="container">
+    <div class="hero__content">
+
+      <!-- Eyebrow -->
+      <div class="hero__eyebrow animate-fade-up">
+        <span class="badge badge--primary">شريك التحول الرقمي المعتمد</span>
+        <span class="hero__eyebrow-dots">
+          <span></span><span></span><span></span>
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero__title animate-fade-up" style="animation-delay:.1s">
+        حلول تقنية مؤسسية<br/>
+        <span class="hero__title-accent">للمستقبل الرقمي</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero__subtitle animate-fade-up" style="animation-delay:.2s">
+        نحن شركة استشارات تقنية متكاملة تساعد المؤسسات الكبرى على التحول الرقمي، تطوير البرمجيات، وتحقيق التميز التشغيلي. نثق في بناء شراكات استراتيجية طويلة الأمد.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero__actions animate-fade-up" style="animation-delay:.3s">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">
+          احجز استشارة مجانية
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a routerLink="/portfolio" class="btn btn-ghost btn-lg">
+          استعرض أعمالنا
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="hero__trust animate-fade-up" style="animation-delay:.4s">
+        <span class="hero__trust-label">موثوق من قبل:</span>
+        <div class="hero__trust-logos">
+          <span class="hero__trust-logo">Saudi Aramco</span>
+          <span class="hero__trust-divider">|</span>
+          <span class="hero__trust-logo">STC</span>
+          <span class="hero__trust-divider">|</span>
+          <span class="hero__trust-logo">SABIC</span>
+          <span class="hero__trust-divider">|</span>
+          <span class="hero__trust-logo">Al Rajhi Bank</span>
+          <span class="hero__trust-divider">|</span>
+          <span class="hero__trust-logo">Aramco Digital</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Strip -->
+  <div class="hero__stats">
+    <div class="container">
+      <div class="hero__stats-grid">
+        @for (stat of stats; track stat.label) {
+          <div class="hero__stat">
+            <div class="hero__stat-icon">{{ stat.icon }}</div>
+            <div>
+              <div class="hero__stat-value">{{ stat.value }}</div>
+              <div class="hero__stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

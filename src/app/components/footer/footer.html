@@ -1,0 +1,85 @@
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand Column -->
+        <div class="footer__brand">
+          <a routerLink="/" class="footer__logo">
+            <div class="footer__logo-icon">DS</div>
+            <div>
+              <div class="footer__logo-name">Deep<strong>Solution</strong><span>.io</span></div>
+              <div class="footer__logo-tagline">شريكك الاستراتيجي في التحول الرقمي</div>
+            </div>
+          </a>
+          <p class="footer__desc">
+            نحن شركة استشارات تقنية رائدة متخصصة في تحويل المؤسسات الكبرى من خلال حلول برمجية متكاملة، تحول رقمي، وخبرة صناعية عميقة.
+          </p>
+          <div class="footer__socials">
+            @for (social of socials; track social.label) {
+              <a [href]="social.url" target="_blank" rel="noopener" class="footer__social-btn" [attr.aria-label]="social.label">
+                {{ social.icon }}
+              </a>
+            }
+          </div>
+        </div>
+
+        <!-- Solutions -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">الحلول</h4>
+          <ul class="footer__links">
+            @for (link of footerLinks.solutions; track link.route) {
+              <li><a [routerLink]="link.route" class="footer__link">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">الشركة</h4>
+          <ul class="footer__links">
+            @for (link of footerLinks.company; track link.label) {
+              <li><a [routerLink]="link.route" class="footer__link">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">المنتجات</h4>
+          <ul class="footer__links">
+            @for (link of footerLinks.products; track link.label) {
+              <li><a [routerLink]="link.route" class="footer__link">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">الدعم</h4>
+          <ul class="footer__links">
+            @for (link of footerLinks.support; track link.label) {
+              <li><a [routerLink]="link.route" class="footer__link">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="footer__bottom-inner">
+        <p class="footer__copyright">
+          © {{ currentYear }} DeepSolution.io — جميع الحقوق محفوظة
+        </p>
+        <div class="footer__certifications">
+          <span class="footer__cert">ISO 27001</span>
+          <span class="footer__cert">ISO 9001</span>
+          <span class="footer__cert">GDPR Compliant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

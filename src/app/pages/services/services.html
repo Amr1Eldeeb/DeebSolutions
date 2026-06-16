@@ -1,0 +1,44 @@
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero__breadcrumb">
+      <a routerLink="/">الرئيسية</a>
+      <span>/</span>
+      <span>خدماتنا</span>
+    </div>
+    <h1>خدماتنا التقنية المتكاملة</h1>
+    <p>حلول برمجية واستشارية شاملة تلبي احتياجات المؤسسات الكبرى</p>
+  </div>
+</div>
+
+<app-service-cards
+  [services]="services"
+  title="جميع خدماتنا"
+  subtitle="نقدم مجموعة شاملة من الخدمات التقنية والاستشارية">
+</app-service-cards>
+
+<!-- Why Choose Us -->
+<section class="section" style="background: var(--color-white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">لماذا نحن؟</span>
+      <h2 class="section-header__title">ما يميزنا عن غيرنا</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon-box icon-box--lg" style="margin-bottom: var(--space-5)">🎯</div>
+        <h3 style="margin-bottom: var(--space-3)">خبرة قطاعية عميقة</h3>
+        <p>خبراؤنا يمتلكون معرفة متخصصة في أكثر من 8 قطاعات صناعية، مما يضمن حلولاً تناسب طبيعة عملك.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box icon-box--lg" style="margin-bottom: var(--space-5)">🔧</div>
+        <h3 style="margin-bottom: var(--space-3)">تقنيات حديثة</h3>
+        <p>نستخدم أحدث التقنيات والمنهجيات لبناء حلول قابلة للتوسع وآمنة ومستدامة على المدى الطويل.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box icon-box--lg" style="margin-bottom: var(--space-5)">🤝</div>
+        <h3 style="margin-bottom: var(--space-3)">شراكة استراتيجية</h3>
+        <p>نتعامل مع عملائنا كشركاء استراتيجيين لا كموردين، ونلتزم بنجاحهم على المدى البعيد.</p>
+      </div>
+    </div>
+  </div>
+</section>

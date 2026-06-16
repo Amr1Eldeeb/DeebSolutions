@@ -1,0 +1,34 @@
+<section class="services section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">خدماتنا</span>
+      <h2 class="section-header__title">{{ title }}</h2>
+      <p class="section-header__subtitle">{{ subtitle }}</p>
+    </div>
+    <div class="services__grid">
+      @for (service of services; track service.id) {
+        <div class="service-card">
+          <div class="service-card__icon">{{ service.icon }}</div>
+          <h3 class="service-card__title">{{ service.titleAr }}</h3>
+          <p class="service-card__desc">{{ service.descriptionAr }}</p>
+          <ul class="service-card__features">
+            @for (feat of service.featuresAr; track feat) {
+              <li class="service-card__feature">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                {{ feat }}
+              </li>
+            }
+          </ul>
+          <a routerLink="/services" class="service-card__link">
+            اكتشف المزيد
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</section>

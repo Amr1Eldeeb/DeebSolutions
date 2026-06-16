@@ -1,0 +1,19 @@
+<section class="stats section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">بالأرقام</span>
+      <h2 class="section-header__title">{{ title }}</h2>
+      <p class="section-header__subtitle">{{ subtitle }}</p>
+    </div>
+    <div class="stats__grid">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-card">
+          <div class="stat-card__icon">{{ stat.icon }}</div>
+          <div class="stat-card__value">{{ stat.value }}</div>
+          <div class="stat-card__label">{{ stat.label }}</div>
+          <div class="stat-card__desc">{{ stat.description }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

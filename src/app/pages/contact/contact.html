@@ -1,0 +1,135 @@
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero__breadcrumb">
+      <a routerLink="/">الرئيسية</a>
+      <span>/</span>
+      <span>تواصل معنا</span>
+    </div>
+    <h1>تواصل مع فريقنا</h1>
+    <p>نحن هنا للإجابة على استفساراتك ومساعدتك في بدء مشروعك</p>
+  </div>
+</div>
+
+<section class="contact-section section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>معلومات التواصل</h2>
+        <p class="contact-info__desc">تواصل معنا عبر أي من القنوات التالية أو أرسل لنا رسالتك مباشرة.</p>
+
+        <div class="contact-info__items">
+          <div class="contact-info__item">
+            <div class="icon-box">📍</div>
+            <div>
+              <div class="contact-info__label">العنوان</div>
+              <div class="contact-info__val">الرياض، المملكة العربية السعودية</div>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="icon-box">📞</div>
+            <div>
+              <div class="contact-info__label">الهاتف</div>
+              <div class="contact-info__val" dir="ltr">+966 11 000 0000</div>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="icon-box">✉️</div>
+            <div>
+              <div class="contact-info__label">البريد الإلكتروني</div>
+              <div class="contact-info__val">info&#64;deepsolution.io</div>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="icon-box">🕐</div>
+            <div>
+              <div class="contact-info__label">ساعات العمل</div>
+              <div class="contact-info__val">الأحد – الخميس: 9 صباحاً – 6 مساءً</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info__offices">
+          <h3>مكاتبنا</h3>
+          <div class="office-tag">🇸🇦 الرياض — المقر الرئيسي</div>
+          <div class="office-tag">🇦🇪 دبي — مركز الخليج</div>
+          <div class="office-tag">🇪🇬 القاهرة — مركز التطوير</div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap">
+        @if (!submitted) {
+          <form class="contact-form" (ngSubmit)="onSubmit()">
+            <h2>أرسل لنا رسالة</h2>
+            <p>سيرد عليك فريقنا خلال 24 ساعة عمل.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">الاسم الكامل *</label>
+                <input id="name" type="text" [(ngModel)]="form.name" name="name" placeholder="محمد العلي" required />
+              </div>
+              <div class="form-group">
+                <label for="email">البريد الإلكتروني *</label>
+                <input id="email" type="email" [(ngModel)]="form.email" name="email" placeholder="name@company.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">اسم الشركة</label>
+                <input id="company" type="text" [(ngModel)]="form.company" name="company" placeholder="شركة المستقبل" />
+              </div>
+              <div class="form-group">
+                <label for="phone">رقم الهاتف</label>
+                <input id="phone" type="tel" [(ngModel)]="form.phone" name="phone" placeholder="+966 5X XXX XXXX" dir="ltr" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="service">الخدمة المطلوبة</label>
+                <select id="service" [(ngModel)]="form.service" name="service">
+                  <option value="">-- اختر الخدمة --</option>
+                  @for (s of services; track s) {
+                    <option [value]="s">{{ s }}</option>
+                  }
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget">الميزانية التقريبية</label>
+                <select id="budget" [(ngModel)]="form.budget" name="budget">
+                  <option value="">-- الميزانية --</option>
+                  <option value="50k">أقل من 50,000 USD</option>
+                  <option value="100k">50,000 – 100,000 USD</option>
+                  <option value="250k">100,000 – 250,000 USD</option>
+                  <option value="500k">250,000 – 500,000 USD</option>
+                  <option value="500k+">أكثر من 500,000 USD</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">تفاصيل المشروع *</label>
+              <textarea id="message" [(ngModel)]="form.message" name="message" rows="5"
+                        placeholder="أخبرنا عن مشروعك واحتياجاتك..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%">
+              إرسال الرسالة
+            </button>
+          </form>
+        } @else {
+          <div class="success-state">
+            <div class="success-state__icon">✅</div>
+            <h2>تم إرسال رسالتك بنجاح!</h2>
+            <p>شكراً لتواصلك معنا. سيرد عليك فريقنا خلال 24 ساعة عمل.</p>
+            <button class="btn btn-primary" (click)="submitted = false">إرسال رسالة أخرى</button>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

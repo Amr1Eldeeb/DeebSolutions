@@ -1,0 +1,109 @@
+<!-- Hero Section -->
+<app-hero></app-hero>
+
+<!-- Services Section -->
+<app-service-cards [services]="services"></app-service-cards>
+
+<!-- Stats Section -->
+<app-stats-section></app-stats-section>
+
+<!-- Process Section -->
+<section class="process section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">منهجيتنا</span>
+      <h2 class="section-header__title">كيف نعمل؟</h2>
+      <p class="section-header__subtitle">منهجية مدروسة تضمن نتائج قابلة للقياس في كل مرحلة</p>
+    </div>
+    <div class="process__steps">
+      @for (step of process; track step.step) {
+        <div class="process-step">
+          <div class="process-step__num">{{ step.step }}</div>
+          <div class="process-step__content">
+            <h3 class="process-step__title">{{ step.title }}</h3>
+            <p class="process-step__desc">{{ step.desc }}</p>
+          </div>
+          <div class="process-step__connector"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Industries Section -->
+<app-industry-cards></app-industry-cards>
+
+<!-- Portfolio Preview -->
+<section class="portfolio-preview section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">أعمالنا</span>
+      <h2 class="section-header__title">مشاريع أثبتت نجاحها</h2>
+      <p class="section-header__subtitle">نماذج من أعمالنا لكبرى المؤسسات في المنطقة</p>
+    </div>
+    <div class="portfolio-preview__grid">
+      @for (item of portfolio; track item.id) {
+        <div class="portfolio-card">
+          <div class="portfolio-card__image">
+            <div class="portfolio-card__placeholder">
+              <span>{{ item.client[0] }}</span>
+            </div>
+            <div class="portfolio-card__overlay">
+              <span class="badge badge--primary">{{ item.industryAr }}</span>
+            </div>
+          </div>
+          <div class="portfolio-card__body">
+            <div class="portfolio-card__client">{{ item.client }}</div>
+            <h3 class="portfolio-card__title">{{ item.titleAr }}</h3>
+            <p class="portfolio-card__desc">{{ item.descriptionAr }}</p>
+            <div class="portfolio-card__tech">
+              @for (tech of item.technologies.slice(0,3); track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+            <div class="portfolio-card__results">
+              @for (result of item.resultsAr.slice(0,2); track result) {
+                <div class="portfolio-card__result">✓ {{ result }}</div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <div style="text-align:center; margin-top: var(--space-10)">
+      <a routerLink="/portfolio" class="btn btn-outline btn-lg">عرض جميع المشاريع</a>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Preview -->
+<section class="blog-preview section" style="background: var(--color-bg-alt)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">المدونة</span>
+      <h2 class="section-header__title">أحدث المقالات والرؤى</h2>
+      <p class="section-header__subtitle">آخر الاتجاهات والرؤى التقنية من خبراء DeepSolution</p>
+    </div>
+    <div class="grid-3">
+      @for (post of blogPosts; track post.id) {
+        <article class="blog-card">
+          <div class="blog-card__cat">{{ post.categoryAr }}</div>
+          <h3 class="blog-card__title">{{ post.titleAr }}</h3>
+          <p class="blog-card__excerpt">{{ post.excerptAr }}</p>
+          <div class="blog-card__meta">
+            <span>{{ post.authorAr }}</span>
+            <span>•</span>
+            <span>{{ post.readTime }} دقائق قراءة</span>
+          </div>
+          <a routerLink="/blog" class="blog-card__link">اقرأ المزيد ←</a>
+        </article>
+      }
+    </div>
+    <div style="text-align:center; margin-top: var(--space-10)">
+      <a routerLink="/blog" class="btn btn-outline btn-lg">عرض جميع المقالات</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<app-cta-section></app-cta-section>

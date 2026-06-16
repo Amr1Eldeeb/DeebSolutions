@@ -1,0 +1,133 @@
+﻿// ==========================================================================
+// Solutions Page Styles (DeepSolutions.io Style)
+// ==========================================================================
+
+// متغيرات الألوان المقترحة (إذا لم تكن موجودة لديك)
+$color-primary: #0d6efd; // أزرق احترافي
+$color-text-main: #2b3445;
+$color-text-muted: #7d879c;
+$color-bg-light-soft: #f9faff; // خلفية فاتحة جداً مائلة للأزرق
+$color-white: #ffffff;
+$shadow-card: 0 10px 30px rgba(108, 117, 125, 0.08); // ظل ناعم جداً
+$transition-base: all 0.3s ease-in-out;
+$border-radius-lg: 16px;
+
+// --- Styles For Modified Elements ---
+
+.page-hero {
+  // افترضنا أن الـ padding والـ background موجودة في الاستايل العام للـ page-hero
+  // سنقوم فقط بتنسيق العناوين الجديدة
+
+  &__title {
+    font-size: 3rem; // حجم كبير واحترافي
+    font-weight: 800;
+    color: $color-text-main;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: $color-text-muted;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto; // لتوسط النص
+    line-height: 1.8;
+  }
+}
+
+// --- Styles For New Elements (The Grid) ---
+
+.solutions-grid-section {
+  background-color: $color-bg-light-soft; // الخلفية الفاتحة والأنيقة
+}
+
+// كارت الخدمة (Solution Card)
+.solution-card {
+  background-color: $color-white;
+  padding: 2.5rem;
+  border-radius: $border-radius-lg;
+  height: 100%; // لضمان تساوي الارتفاع في الـ Grid
+  border: 1px solid rgba($color-text-muted, 0.1); // حدود خفيفة جداً
+  box-shadow: $shadow-card; // الظل الأنيق
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; // محاذاة لليمين (بما أن الاتجاه RTL)
+
+  // تأثير عند التمرير الماوس
+  &:hover {
+    transform: translateY(-5px); // حركة صعود بسيطة
+    border-color: rgba($color-primary, 0.3);
+    box-shadow: 0 15px 40px rgba($color-primary, 0.12);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: rgba($color-primary, 0.05); // خلفية خفيفة جداً بلون الهوية
+    color: $color-primary;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba($color-primary, 0.1);
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-text-main;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: $color-text-muted;
+    line-height: 1.7;
+    margin-bottom: 0; // إلغاء الـ margin السفلي الأخير
+    flex-grow: 1; // لملء المساحة المتبقية وضمان تناسق العناوين
+  }
+}
+
+// تنسيق رأس القسم (إذا لم يكن لديك استايل عام له)
+.section-header {
+  margin-bottom: 4rem;
+
+  .section-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $color-text-main;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $color-text-muted;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

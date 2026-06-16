@@ -1,0 +1,19 @@
+<section class="industries section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">القطاعات</span>
+      <h2 class="section-header__title">نخدم مختلف القطاعات</h2>
+      <p class="section-header__subtitle">خبرة عميقة في أكثر من 8 قطاعات صناعية رئيسية</p>
+    </div>
+    <div class="industries__grid">
+      @for (industry of industries; track industry.name) {
+        <div class="industry-card" [style.--accent]="industry.color">
+          <div class="industry-card__icon">{{ industry.icon }}</div>
+          <h3 class="industry-card__name">{{ industry.name }}</h3>
+          <p class="industry-card__desc">{{ industry.description }}</p>
+          <div class="industry-card__arrow">←</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

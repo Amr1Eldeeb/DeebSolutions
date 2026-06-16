@@ -1,0 +1,77 @@
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero__breadcrumb">
+      <a routerLink="/">الرئيسية</a>
+      <span>/</span>
+      <span>من نحن</span>
+    </div>
+    <h1>من نحن</h1>
+    <p>شركة استشارات تقنية رائدة متخصصة في بناء مستقبل رقمي أكثر ذكاءً للمؤسسات</p>
+  </div>
+</div>
+
+<!-- Mission -->
+<section class="section" style="background: var(--color-white)">
+  <div class="container">
+    <div class="about-intro">
+      <div class="about-intro__text">
+        <span class="section-header__eyebrow">رسالتنا</span>
+        <h2>نحن DeepSolution.io</h2>
+        <p>
+          شركة استشارات تقنية متخصصة تأسست بهدف تمكين المؤسسات الكبرى من تحقيق إمكاناتها الكاملة من خلال التقنية. نؤمن بأن التحول الرقمي ليس مجرد أداة، بل هو استراتيجية شاملة لإعادة تعريف الأعمال.
+        </p>
+        <p>
+          مع أكثر من 15 عاماً من الخبرة وفريق يضم أكثر من 200 متخصص، نقدم خدماتنا لأكثر من 50 مؤسسة كبرى في 12 دولة في منطقة الشرق الأوسط وشمال أفريقيا.
+        </p>
+        <a routerLink="/contact" class="btn btn-primary">تواصل معنا</a>
+      </div>
+      <div class="about-intro__stats">
+        <div class="about-stat"><span class="about-stat__val">+15</span><span class="about-stat__label">سنة من الخبرة</span></div>
+        <div class="about-stat"><span class="about-stat__val">+200</span><span class="about-stat__label">متخصص في الفريق</span></div>
+        <div class="about-stat"><span class="about-stat__val">+50</span><span class="about-stat__label">عميل مؤسسي</span></div>
+        <div class="about-stat"><span class="about-stat__val">12</span><span class="about-stat__label">دولة</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section" style="background: var(--color-bg-alt)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">قيمنا</span>
+      <h2 class="section-header__title">القيم التي تقودنا</h2>
+    </div>
+    <div class="grid-4">
+      @for (val of values; track val.title) {
+        <div class="card" style="text-align:center">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-4)">{{ val.icon }}</div>
+          <h3 style="margin-bottom: var(--space-3)">{{ val.title }}</h3>
+          <p style="font-size: var(--text-sm)">{{ val.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section" style="background: var(--color-white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">فريقنا</span>
+      <h2 class="section-header__title">القيادة التنفيذية</h2>
+      <p class="section-header__subtitle">فريق من الخبراء والقادة ذوي الخبرة العالمية</p>
+    </div>
+    <div class="team-grid">
+      @for (member of team; track member.name) {
+        <div class="team-card">
+          <div class="team-card__avatar">{{ member.initial }}</div>
+          <h3 class="team-card__name">{{ member.name }}</h3>
+          <p class="team-card__title">{{ member.title }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

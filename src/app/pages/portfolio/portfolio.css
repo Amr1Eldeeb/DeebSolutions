@@ -1,0 +1,82 @@
+﻿/* --- تنسيقات قسم Hero --- */
+.bg-light-custom {
+  background-color: #f8fbfd; /* لون فاتح جداً يميل للأزرق لإعطاء طابع تكنولوجي */
+  padding: 5rem 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.page-hero__breadcrumb {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-secondary, #6c757d);
+}
+
+.page-hero__breadcrumb a {
+  color: var(--color-text-secondary, #6c757d);
+  transition: color 0.3s ease;
+}
+
+.page-hero__breadcrumb a:hover {
+  color: #0d6efd; /* Primary Color */
+}
+
+.page-hero__breadcrumb .current-page {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  color: var(--color-text-secondary, #6c757d);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* --- تنسيقات قسم المنتجات --- */
+.products-section {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+/* بطاقات المنتجات */
+.product-card {
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  border: 1px solid #f1f5f9 !important;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* مساحة الصورة أو الأيقونة أعلى البطاقة */
+.card-img-header {
+  height: 220px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.card-title {
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* أزرار البطاقات */
+.product-card .btn {
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.product-card .btn:hover {
+  transform: scale(1.02);
+}

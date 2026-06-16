@@ -1,0 +1,307 @@
+﻿
+// Variables
+$primary-color: #0d6efd; // يمكنك تغييره للون الهوية الخاص بـ DeepSolution
+$primary-light: rgba(13, 110, 253, 0.08);
+$text-main: #2b3445;
+$text-muted: #6c757d;
+$bg-white: #ffffff;
+$bg-light: #f8f9fa;
+$bg-light-soft: #fcfcfd;
+$border-color: #eaecef;
+$transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+$shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+$shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+$border-radius: 16px;
+
+// Global Section Styles
+.section {
+  padding: 80px 0;
+  
+  &--alt {
+    background-color: $bg-light-soft;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.bg-light-soft {
+  background-color: $bg-light-soft;
+}
+
+// Section Header
+.section-header {
+  margin-bottom: 50px;
+
+  .section-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: $primary-light;
+    color: $primary-color;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $text-main;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $text-muted;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+}
+
+// Hero Section
+.page-hero {
+  padding: 80px 0 60px;
+  background: linear-gradient(180deg, #ffffff 0%, $bg-light 100%);
+  border-bottom: 1px solid $border-color;
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+
+    a {
+      color: $text-muted;
+      text-decoration: none;
+      transition: $transition-base;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    span {
+      color: #adb5bd;
+    }
+    
+    span:last-child {
+      color: $primary-color;
+      font-weight: 500;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: $text-main;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  &__subtitle {
+    font-size: 1.15rem;
+    color: $text-muted;
+    line-height: 1.8;
+  }
+}
+
+// Partners Section
+.partners-section {
+  padding: 60px 0;
+  background-color: $bg-white;
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background-color: $bg-white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  height: 100%;
+  cursor: pointer;
+
+  .partner-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: $transition-base;
+  }
+
+  .partner-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-muted;
+    transition: $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $primary-color;
+    box-shadow: $shadow-md;
+
+    .partner-icon {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .partner-name {
+      color: $primary-color;
+    }
+  }
+}
+
+// Industry Cards
+.industry-card {
+  background: $bg-white;
+  padding: 40px 30px;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  box-shadow: $shadow-sm;
+  transition: $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  // تأثير الشريط الجانبي عند الـ Hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0; // لليمين عشان دعم اللغة العربية (RTL)
+    width: 4px;
+    height: 0;
+    background-color: $primary-color;
+    transition: $transition-base;
+  }
+
+  .industry-icon {
+    font-size: 3rem;
+    margin-bottom: 24px;
+    display: inline-block;
+    padding: 16px;
+    background-color: $primary-light;
+    border-radius: 12px;
+    line-height: 1;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $text-main;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: $text-muted;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-md;
+    border-color: transparent;
+
+    &::before {
+      height: 100%;
+    }
+  }
+}
+
+// Benefits Cards
+.benefit-card {
+  background: $bg-white;
+  padding: 30px;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  transition: $transition-base;
+  height: 100%;
+
+  .benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $text-main;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &:hover {
+    border-color: rgba($primary-color, 0.3);
+    background-color: $primary-light;
+  }
+}
+
+// Process Steps
+.process-step {
+  position: relative;
+  padding: 20px 10px;
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background-color: $bg-white;
+    border: 2px dashed $border-color;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $primary-color;
+    transition: $transition-base;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-main;
+  }
+
+  &:hover {
+    .step-number {
+      background-color: $primary-color;
+      color: $bg-white;
+      border-color: $primary-color;
+      border-style: solid;
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+  .page-hero {
+    &__title {
+      font-size: 2.2rem;
+    }
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+}
