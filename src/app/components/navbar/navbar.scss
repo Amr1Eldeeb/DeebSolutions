@@ -11,9 +11,9 @@
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-light, #eee);
   transition: all var(--transition-base, 0.3s ease);
-  height: var(--navbar-height, 80px);
-  display: flex;
-  align-items: center;
+  
+  /* 🟢 تم تعديل هذا الجزء ليسمح لقائمة الموبايل بالظهور كاملة */
+  display: block; 
 
   &--scrolled {
     background: var(--color-white, #ffffff);
@@ -33,7 +33,9 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-6, 1.5rem);
-    height: var(--navbar-height, 80px);
+    
+    /* 🟢 الارتفاع الثابت للهيدر موجود هنا فقط لتجنب قص القائمة */
+    height: var(--navbar-height, 80px); 
   }
 
   // ─── Logo ───
@@ -126,7 +128,7 @@
     position: absolute;
     top: calc(100% + var(--space-2, 0.5rem));
     inset-inline-start: 0; // لتدعم العربية والإنجليزية (يمين/يسار)
-    min-width: 250px; // تم زيادة العرض لتستوعب الكلمات الطويلة
+    min-width: 250px; 
     background: var(--color-white, #ffffff);
     border: 1px solid var(--color-border, #eee);
     border-radius: var(--radius-lg, 12px);
@@ -202,12 +204,14 @@
 
   // ─── Mobile Menu ───
   &__mobile {
-    position: fixed;
-    top: var(--navbar-height, 80px);
-    inset-inline: 0;
-    bottom: 0;
+    /* 🟢 التحديث الجديد لضمان فتح القائمة بالكامل */
+    position: absolute; 
+    top: 100%; /* تبدأ مباشرة أسفل الهيدر */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height, 80px)); /* تأخذ باقي طول الشاشة بالكامل */
     background: var(--color-white, #fff);
-    overflow-y: auto;
+    overflow-y: auto; /* يسمح بالتمرير (Scroll) بسلاسة */
     padding-block: var(--space-4, 1rem) var(--space-8, 2rem);
     border-top: 1px solid var(--color-border, #eee);
     z-index: 999;
@@ -259,6 +263,7 @@
 
   &__mobile-cta {
     padding-top: var(--space-6, 1.5rem);
+    padding-bottom: var(--space-6, 1.5rem); // إضافة مسافة من الأسفل لضمان وضوح الزر
   }
 }
 
