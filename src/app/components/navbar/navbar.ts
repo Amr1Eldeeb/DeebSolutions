@@ -2,7 +2,7 @@ import { Component, HostListener, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-interface NavItem {
+export interface NavItem {
   label: string;
   labelAr: string;
   route: string;
@@ -13,8 +13,8 @@ interface NavItem {
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
-  templateUrl: './navbar.html',
-  styleUrl: './navbar.scss'
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
   isScrolled = signal(false);
@@ -27,11 +27,11 @@ export class NavbarComponent {
     {
       label: 'Services', labelAr: 'الخدمات', route: '/services',
       children: [
-        { label: 'Enterprise Software', labelAr: 'برمجيات مؤسسية', route: '/services' },
-        { label: 'Digital Transformation', labelAr: 'التحول الرقمي', route: '/services' },
-        { label: 'Cloud Solutions', labelAr: 'الحلول السحابية', route: '/services' },
-        { label: 'Data & Analytics', labelAr: 'البيانات والتحليلات', route: '/services' },
-        { label: 'Cybersecurity', labelAr: 'الأمن السيبراني', route: '/services' },
+        { label: 'Enterprise Software', labelAr: 'برمجيات مؤسسية', route: '/services/enterprise' },
+        { label: 'Digital Transformation', labelAr: 'التحول الرقمي', route: '/services/digital' },
+        { label: 'Cloud Solutions', labelAr: 'الحلول السحابية', route: '/services/cloud' },
+        { label: 'Data & Analytics', labelAr: 'البيانات والتحليلات', route: '/services/data' },
+        { label: 'Cybersecurity', labelAr: 'الأمن السيبراني', route: '/services/security' },
       ]
     },
     { label: 'Industries', labelAr: 'القطاعات', route: '/industries' },
@@ -49,19 +49,31 @@ export class NavbarComponent {
     { label: 'Contact', labelAr: 'تواصل معنا', route: '/contact' },
   ];
 
+  // تأثير التمرير
   @HostListener('window:scroll')
   onScroll(): void {
     this.isScrolled.set(window.scrollY > 20);
   }
 
-  toggleMobileMenu(): void {
+  // إغلاق القوائم عند النقر خارجها
+  @HostListener('document:click')
+  onDocumentClick(): void {
+    this.activeDropdown.set(null);
+  }
+
+  // فتح/إغلاق قائمة الموبايل
+  toggleMobileMenu(event: Event): void {
+    event.stopPropagation();
     this.mobileMenuOpen.update(v => !v);
   }
 
-  toggleDropdown(label: string): void {
+  // فتح/إغلاق القائمة المنسدلة للديسكتوب والموبايل
+  toggleDropdown(label: string, event: Event): void {
+    event.stopPropagation();
     this.activeDropdown.update(v => v === label ? null : label);
   }
 
+  // إغلاق كل شيء عند الانتقال لصفحة أخرى
   closeAll(): void {
     this.mobileMenuOpen.set(false);
     this.activeDropdown.set(null);

@@ -2,7 +2,6 @@
   <div class="container">
     <div class="navbar__inner">
 
-      <!-- Logo -->
       <a routerLink="/" class="navbar__logo" (click)="closeAll()">
         <div class="navbar__logo-icon">DS</div>
         <div class="navbar__logo-text">
@@ -10,14 +9,13 @@
         </div>
       </a>
 
-      <!-- Desktop Nav -->
       <ul class="navbar__nav hide-mobile">
         @for (item of navItems; track item.route) {
           <li class="navbar__nav-item" [class.navbar__nav-item--has-dropdown]="item.children">
             @if (item.children) {
               <button
                 class="navbar__nav-link navbar__nav-link--toggle"
-                (click)="toggleDropdown(item.label)"
+                (click)="toggleDropdown(item.label, $event)"
                 [class.active]="activeDropdown() === item.label"
                 type="button"
               >
@@ -28,7 +26,7 @@
                 </svg>
               </button>
               @if (activeDropdown() === item.label) {
-                <div class="navbar__dropdown">
+                <div class="navbar__dropdown" (click)="$event.stopPropagation()">
                   @for (child of item.children; track child.route) {
                     <a [routerLink]="child.route" class="navbar__dropdown-item" (click)="closeAll()">
                       {{ child.labelAr }}
@@ -49,16 +47,14 @@
         }
       </ul>
 
-      <!-- CTA -->
       <div class="navbar__actions hide-mobile">
         <a routerLink="/contact" class="btn btn-outline btn-sm">تواصل معنا</a>
         <a routerLink="/contact" class="btn btn-primary btn-sm">احجز استشارة مجانية</a>
       </div>
 
-      <!-- Mobile Hamburger -->
       <button
         class="navbar__hamburger hide-desktop"
-        (click)="toggleMobileMenu()"
+        (click)="toggleMobileMenu($event)"
         [class.open]="mobileMenuOpen()"
         type="button"
         aria-label="Toggle menu"
@@ -68,7 +64,6 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
   @if (mobileMenuOpen()) {
     <div class="navbar__mobile">
       <div class="container">
@@ -76,7 +71,7 @@
           <div class="navbar__mobile-item">
             @if (item.children) {
               <button class="navbar__mobile-link navbar__mobile-link--toggle"
-                      (click)="toggleDropdown(item.label)" type="button">
+                      (click)="toggleDropdown(item.label, $event)" type="button">
                 {{ item.labelAr }}
                 <svg [class.rotated]="activeDropdown() === item.label"
                      width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
